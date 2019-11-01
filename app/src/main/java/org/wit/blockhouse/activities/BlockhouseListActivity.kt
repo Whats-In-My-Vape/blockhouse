@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_blockhouse_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.toast
+import org.wit.blockhouse.Authorisation.LoginActivity
+import org.wit.blockhouse.adapters.BlockhouseAdapter
+import org.wit.blockhouse.adapters.BlockhouseListener
 import org.wit.blockhouse.R
 import org.wit.blockhouse.main.MainApp
 import org.wit.blockhouse.models.BlockhouseModel
@@ -47,6 +51,10 @@ class BlockhouseListActivity : AppCompatActivity(), BlockhouseListener {
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {
     when (item?.itemId) {
       R.id.item_add -> startActivityForResult<BlockhouseActivity>(0)
+      R.id.logout -> {
+        toast("Logged Out")
+        logout()
+      }
     }
     return super.onOptionsItemSelected(item)
   }
@@ -58,5 +66,18 @@ class BlockhouseListActivity : AppCompatActivity(), BlockhouseListener {
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     loadBlockhouses()
     super.onActivityResult(requestCode, resultCode, data)
+  }
+
+  override fun del(blockhouse: BlockhouseModel) {
+    app.users.deleteBlockhouse(app.currentUser, blockhouse)
+    loadBlockhouses()
+    toast("Blockhouse Successfully Deleted")
+  }
+
+  private fun logout() {
+    val intent = Intent(this, LoginActivity::class.java)
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+    startActivity(intent)
+    finish()
   }
 }

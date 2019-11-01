@@ -17,7 +17,8 @@
       android:layout_height="64dp"
       android:layout_alignParentLeft="true"
       android:layout_alignParentTop="true"
-      android:layout_marginRight="16dp"/>
+      android:layout_marginRight="16dp"
+        android:contentDescription="TODO" />
 
     <TextView
       android:id="@+id/blockhouseTitle"

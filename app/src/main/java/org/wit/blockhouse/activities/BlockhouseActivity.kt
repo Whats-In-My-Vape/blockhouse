@@ -1,5 +1,6 @@
 package org.wit.blockhouse.activities
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ import org.wit.blockhouse.helpers.showImagePicker
 import org.wit.blockhouse.main.MainApp
 import org.wit.blockhouse.models.Location
 import org.wit.blockhouse.models.BlockhouseModel
+import java.lang.Exception
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -88,8 +90,6 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
      }
    }
 
-
-   // ------------- Check Box  ------------- //
    setDate.visibility = View.INVISIBLE
    dateText.visibility = View.INVISIBLE
 
@@ -125,8 +125,6 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
      datePicker.show()
    }
 
-
-   // ------------- Notes  ------------- //
    val layoutManager = LinearLayoutManager(this)
    note_view.layoutManager = layoutManager
    note_view.adapter = NotesAdapter(blockhouse.note, this)
@@ -142,13 +140,11 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
      }
    }
 
-   // ------------- Images  ------------- //
    val imageLayoutManager = LinearLayoutManager(this)
    image_view.layoutManager = imageLayoutManager
    image_view.adapter = ImageAdapter(blockhouse.image_list, this)
    loadImage()
 
-   // ------------- Edit Mode ------------- //
    if (intent.hasExtra("blockhouse_edit")) {
      edit = true
      toast("!! WARNING YOU ARE NOW IN EDIT MODE !!")
@@ -186,11 +182,41 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
 
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {
     when (item?.itemId) {
-      R.id.item_cancel -> {
+      R.id.item_cancel -> startActivity(
+        Intent(
+          this@BlockhouseActivity,
+          BlockhouseListActivity::class.java
+        )
+      )
+      R.id.btnAdd -> {
+        blockhouse.title = blockhouseTitle.text.toString()
+        blockhouse.description = description.text.toString()
+        blockhouse.check_box = checkBox.isChecked
+        blockhouse.date = date
+        blockhouse.location = location
+
+        if (blockhouse.title.isEmpty() || blockhouse.description.isEmpty()) {
+          toast("Add Failed -> Please enter Blockhouse details next time")
+        } else {
+          if (edit) {
+            app.users.updateBlockhouse(app.currentUser, blockhouse)
+            toast("UPDATING ....")
+          } else {
+            try {
+              app.users.createBlockhouse(app.currentUser, blockhouse)
+              toast("NEW BLOCKHOUSE ADDED")
+            } catch (e: Exception) {
+              toast("FAILED TO ADD BLOCKHOUSE")
+            }
+          }
+        }
+        setResult(Activity.RESULT_OK)
         finish()
+
+        startActivity(Intent(this@BlockhouseActivity, BlockhouseListActivity::class.java))
       }
     }
-    return super.onOptionsItemSelected(item)
+    return super.onOptionsItemSelected(item!!)
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -258,6 +284,28 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
     blockhouse.image_list = blockhouse.image_list.filterIndexed { i, s -> i != index }
     image_view.adapter = ImageAdapter(blockhouse.image_list, this)
   }
+
+  // Map methods
+  public override fun onResume() {
+    map.onResume()
+    super.onResume()
+  }
+
+  public override fun onPause() {
+    super.onPause()
+    map.onPause()
+  }
+
+  public override fun onDestroy() {
+    super.onDestroy()
+    map.onDestroy()
+  }
+
+  override fun onLowMemory() {
+    super.onLowMemory()
+    map.onLowMemory()
+  }
+
   private fun setMapLocation(map: GoogleMap, location: LatLng) {
     map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
     with(map) {

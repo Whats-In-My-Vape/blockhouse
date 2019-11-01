@@ -44,8 +44,8 @@ class BlockhouseJSONStore : UserStore, AnkoLogger {
 
     for (user in users) {
       if (user.blockhouses.isNotEmpty()) {
-        for (forts in user.blockhouses) {
-          total.add(forts)
+        for (blockhouse in user.blockhouses) {
+          total.add(blockhouse)
         }
       }
     }
@@ -79,8 +79,8 @@ class BlockhouseJSONStore : UserStore, AnkoLogger {
   }
 
   override fun deleteBlockhouse(user: UserModel, blockhouse: BlockhouseModel) {
-    val fort: BlockhouseModel? = user.blockhouses.find { x -> x.id == blockhouse.id }
-    user.blockhouses.remove(fort)
+    val blockhouse: BlockhouseModel? = user.blockhouses.find { x -> x.id == blockhouse.id }
+    user.blockhouses.remove(blockhouse)
     serialize()
   }
 

@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.arrival_page.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.intentFor
-import org.wit.blockhouse.Authorisation.LoginActivity
-import org.wit.blockhouse.Authorisation.RegisterActivity
 import org.wit.blockhouse.R
 
 class ArrivalActivity : AppCompatActivity(), AnkoLogger{

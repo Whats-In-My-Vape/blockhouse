@@ -32,7 +32,8 @@
         android:textColor="@color/text"
         android:textSize="70dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="318dp" />
+        tools:layout_editor_absoluteY="318dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/registerPage"

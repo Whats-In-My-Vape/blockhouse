@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
 
                         val user: UserModel? = app.users.findUserByEmail(email)
                         toast("after thing")
+                        // if this doesn't happen delete app on device
                         if (user != null && user.password == password) {
                             toast("HELLO ${user.name} :)")
 
@@ -51,7 +52,7 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
                             toast("!! ERROR USER NOT FOUND !!")
                         }
                     } catch (e: Exception) {
-                        toast("!! ERROR LOGING IN !! ")
+                        toast("!! ERROR LOGGING IN !! ")
                     }
                 } else {
                     toast("Invalid email format !!")
