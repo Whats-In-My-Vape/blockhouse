@@ -24,4 +24,7 @@
   <string name="register">Register</string>
   <string name="logout">Logout</string>
   <string name="title_activity_maps">Map</string>
+  <string name="note_content">notes</string>
+  <string name="add_note">add note</string>
+  <string name="set_date">set Date</string>
 </resources>
