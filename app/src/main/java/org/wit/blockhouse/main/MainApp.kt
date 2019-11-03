@@ -11,6 +11,8 @@ import java.lang.Thread.sleep
 
 class MainApp : Application(), AnkoLogger {
 
+  val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
+
 
   lateinit var users : UserStore
   lateinit var currentUser : UserModel
@@ -21,5 +23,9 @@ class MainApp : Application(), AnkoLogger {
     super.onCreate()
     users = BlockhouseJSONStore(applicationContext)
     info("Blockhouse started")
+  }
+
+  fun isEmailValid(email: String): Boolean {
+    return emailRegex.toRegex().matches(email);
   }
 }

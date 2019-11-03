@@ -19,8 +19,6 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
 
     lateinit var app: MainApp
 
-    val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_page)
@@ -34,7 +32,7 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
             if (email == "" || password == "") {
                 toast(" !! ERROR EMPTY INPUTS !!")
             } else {
-                if (isEmailValid(email)) {
+                if (app.isEmailValid(email)) {
 
                     try {
 
@@ -47,7 +45,12 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
                             // We set the currentUser to be the currentUser who logged in
                             app.currentUser = user
 
-                            startActivity(Intent(this@LoginActivity, BlockhouseListActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@LoginActivity,
+                                    BlockhouseListActivity::class.java
+                                )
+                            )
                         } else {
                             toast("!! ERROR USER NOT FOUND !!")
                         }
@@ -66,9 +69,5 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
                 finish()
             }
         }
-    }
-
-    fun isEmailValid(email: String): Boolean {
-        return emailRegex.toRegex().matches(email)
     }
 }

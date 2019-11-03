@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
             if (name == "" || email == "" || password == "") {
                 toast("!! ERROR EMPTY INPUTS !!")
             } else {
-                if (isEmailValid(email)) {
+                if (app.isEmailValid(email)) {
                     user.name = name
                     user.email = email
                     user.password = password
@@ -59,7 +59,5 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    fun isEmailValid(email: String): Boolean {
-        return emailRegex.toRegex().matches(email);
-    }
+
 }
