@@ -1,4 +1,4 @@
-package org.wit.blockhouse.Authorisation
+package org.wit.blockhouse.authorisation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_blockhouse_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
-import org.wit.blockhouse.Authorisation.LoginActivity
+import org.wit.blockhouse.authorisation.LoginActivity
 import org.wit.blockhouse.adapters.BlockhouseAdapter
 import org.wit.blockhouse.adapters.BlockhouseListener
 import org.wit.blockhouse.R

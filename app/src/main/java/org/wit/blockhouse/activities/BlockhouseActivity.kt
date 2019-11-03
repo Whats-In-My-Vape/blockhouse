@@ -248,8 +248,8 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
   }
 
   private fun loadNotes() {
-    val userFort = app.users.findOneBlockhouse(app.currentUser, blockhouse.id)
-    val notes = userFort?.note
+    val userBlockhouse = app.users.findOneBlockhouse(app.currentUser, blockhouse.id)
+    val notes = userBlockhouse?.note
 
     if(notes != null) {
       showNotes(notes)
@@ -257,8 +257,8 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
   }
 
   private fun loadImage() {
-    val userFort = app.users.findOneBlockhouse(app.currentUser, blockhouse.id)
-    val img = userFort?.image_list
+    val userBlockhoue = app.users.findOneBlockhouse(app.currentUser, blockhouse.id)
+    val img = userBlockhoue?.image_list
 
     if(img != null) {
       showNotes(img)

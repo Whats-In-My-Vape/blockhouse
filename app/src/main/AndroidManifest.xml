@@ -29,12 +29,14 @@
 
     <activity android:name=".activities.BlockhouseActivity"></activity>
     <activity android:name=".activities.BlockhouseListActivity"/>
-    <activity android:name=".Authorisation.ArrivalActivity"><intent-filter>
+    <activity android:name=".authorisation.ArrivalActivity"><intent-filter>
       <action android:name="android.intent.action.MAIN" />
       <category android:name="android.intent.category.LAUNCHER" />
     </intent-filter></activity>
-    <activity android:name=".Authorisation.LoginActivity" />
-    <activity android:name=".Authorisation.RegisterActivity" />
+    <activity android:name=".authorisation.LoginActivity" />
+    <activity android:name=".authorisation.RegisterActivity" />
+    <activity android:name=".authorisation.UserSettings"/>
+    <activity android:name=".activities.StatisticsActivity"/>
   </application>
 
 </manifest>

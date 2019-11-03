@@ -1,4 +1,4 @@
-package org.wit.blockhouse.Authorisation
+package org.wit.blockhouse.authorisation
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.login_page.*
 import kotlinx.android.synthetic.main.register_page.back
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 import org.wit.blockhouse.R
