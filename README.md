@@ -9,7 +9,7 @@
 
 ## stats
 
-- [] display stats
+- [ ] display stats
 
 ## settings
 
@@ -21,7 +21,7 @@
 
 - [x] register
 - [x] login
-- [] fix login error 
+- [ ] fix login error 
 
 ## creation page
 
