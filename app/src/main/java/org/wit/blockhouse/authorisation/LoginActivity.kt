@@ -36,7 +36,6 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
                     try {
 
                         val user: UserModel? = app.users.findUserByEmail(email)
-                        toast("after thing")
 
                         if (user != null && user.password == password) {
                             toast("HELLO ${user.name} :)")

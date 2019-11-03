@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     android:fillViewport="true"
     android:scaleType="fitStart"
-    tools:context=".activities.StatsActivity">
+    tools:context=".activities.StatisticsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,21 +41,21 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/stats">
+                app:srcCompat="@drawable/ic_research">
 
             </ImageView>
         </LinearLayout>
 
 
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="299dp"
+            android:layout_height="200dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="46dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="308dp"
+            android:layout_marginEnd="91dp"
             android:gravity="center">
 
             <TableRow
@@ -66,15 +67,15 @@
                     android:id="@+id/f"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Hillforts: "
+                    android:text="@string/total_blockhouses"
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/noBlockhouses"
+                    android:id="@+id/totalBlockhouses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Hillforts: "
+                    android:text="@string/total_blockhouses"
                     android:textColor="@color/colorAccent"
                     android:textSize="26dp" />
             </TableRow>
@@ -86,17 +87,17 @@
 
                 <TextView
                     android:id="@+id/v"
-                    android:layout_width="wrap_content"
+                    android:layout_width="303dp"
                     android:layout_height="wrap_content"
-                    android:text="Visited Forts: "
+                    android:text="@string/visited_blockhouses"
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/noVisits"
+                    android:id="@+id/totalVisits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Visited Forts: "
+                    android:text="@string/visited_blockhouses"
                     android:textColor="@color/colorAccent"
                     android:textSize="26dp" />
             </TableRow>
@@ -115,7 +116,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/noImages"
+                    android:id="@+id/totalImages"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Images: "
@@ -138,7 +139,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/noNotes"
+                    android:id="@+id/totalNotes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Notes:"

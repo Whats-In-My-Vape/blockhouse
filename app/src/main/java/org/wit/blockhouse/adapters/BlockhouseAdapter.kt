@@ -22,7 +22,7 @@ class BlockhouseAdapter constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-            LayoutInflater.from(parent?.context).inflate(
+            LayoutInflater.from(parent.context).inflate(
                 R.layout.card_blockhouse,
                 parent,
                 false
@@ -46,7 +46,7 @@ class BlockhouseAdapter constructor(
 
             val lt = "LAT: ${DecimalFormat("#.##").format(blockhouse.location.lat)}"
             val lg = "LAT: ${DecimalFormat("#.##").format(blockhouse.location.lng)}"
-            itemView.cardLocation.text = "${lt} | ${lg}"
+            itemView.cardLocation.text = "$lt | $lg"
 
             itemView.setOnClickListener { listener.onBlockhouseClick(blockhouse) }
             itemView.delete_blockhouse.setOnClickListener { listener.del(blockhouse) }

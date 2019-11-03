@@ -17,13 +17,11 @@ fun generateRandomId(): Long {
   return Random().nextLong()
 }
 
-class BlockhouseJSONStore : UserStore, AnkoLogger {
+class BlockhouseJSONStore(val context: Context) : UserStore, AnkoLogger {
 
-  val context: Context
   var users = arrayListOf<UserModel>()
 
-  constructor (context: Context) {
-    this.context = context
+  init {
     if (exists(context, JSON_FILE)) {
       deserialize()
     }
@@ -64,7 +62,7 @@ class BlockhouseJSONStore : UserStore, AnkoLogger {
 
   override fun updateBlockhouse(user: UserModel, blockhouse: BlockhouseModel) {
 
-    var foundBlockhouse: BlockhouseModel? = user.blockhouses.find { p -> p.id == blockhouse.id }
+    val foundBlockhouse: BlockhouseModel? = user.blockhouses.find { p -> p.id == blockhouse.id }
 
     if (foundBlockhouse != null) {
       foundBlockhouse.title = blockhouse.title

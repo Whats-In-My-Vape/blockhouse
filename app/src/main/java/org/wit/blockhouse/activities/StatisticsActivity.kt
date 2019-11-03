@@ -32,10 +32,10 @@ class StatisticsActivity : AppCompatActivity(), AnkoLogger {
 
         app = application as MainApp
 
-        noBlockhouses.text = countBlockhouses().toString()
-        noVisits.text = countVisits().toString()
-        noImages.text = nImages().toString()
-        noNotes.text = nNotes().toString()
+        totalBlockhouses.text = countBlockhouses().toString()
+        totalVisits.text = countVisits().toString()
+        totalImages.text = nImages().toString()
+        totalNotes.text = nNotes().toString()
     }
 
     private fun countBlockhouses(): Int {

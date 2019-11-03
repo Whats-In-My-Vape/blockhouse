@@ -17,8 +17,6 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var app: MainApp
     private var user = UserModel()
 
-    val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register_page)

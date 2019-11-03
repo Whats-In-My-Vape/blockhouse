@@ -40,7 +40,7 @@ class UserSettings : AppCompatActivity(), AnkoLogger {
                 if (oldPasswd.text.toString() != app.currentUser.password) {
                     toast("Old Password does not match")
                     reset()
-                } else if(newEmail.text.isEmpty()) {
+                } else if (newEmail.text.isEmpty()) {
                     newUser.id = app.currentUser.id
                     newUser.name = app.currentUser.name
                     newUser.email = app.currentUser.email

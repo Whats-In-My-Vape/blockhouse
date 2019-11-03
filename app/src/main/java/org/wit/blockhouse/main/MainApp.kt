@@ -11,21 +11,22 @@ import java.lang.Thread.sleep
 
 class MainApp : Application(), AnkoLogger {
 
-  val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
+    val emailRegex =
+        "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
 
 
-  lateinit var users : UserStore
-  lateinit var currentUser : UserModel
+    lateinit var users: UserStore
+    lateinit var currentUser: UserModel
 
-  override fun onCreate() {
-    sleep(2000)
-    setTheme(R.style.AppTheme)
-    super.onCreate()
-    users = BlockhouseJSONStore(applicationContext)
-    info("Blockhouse started")
-  }
+    override fun onCreate() {
+        sleep(2000)
+        setTheme(R.style.AppTheme)
+        super.onCreate()
+        users = BlockhouseJSONStore(applicationContext)
+        info("Blockhouse started")
+    }
 
-  fun isEmailValid(email: String): Boolean {
-    return emailRegex.toRegex().matches(email);
-  }
+    fun isEmailValid(email: String): Boolean {
+        return emailRegex.toRegex().matches(email)
+    }
 }

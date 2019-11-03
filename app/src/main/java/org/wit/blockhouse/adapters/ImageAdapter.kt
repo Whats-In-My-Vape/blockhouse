@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_images.view.*
-import kotlinx.android.synthetic.main.card_notes.view.*
 import kotlinx.android.synthetic.main.card_blockhouse.view.*
 import org.wit.blockhouse.R
 import org.wit.blockhouse.helpers.readImageFromPath
@@ -22,7 +21,7 @@ class ImageAdapter constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-            LayoutInflater.from(parent?.context).inflate(
+            LayoutInflater.from(parent.context).inflate(
                 R.layout.card_images,
                 parent,
                 false

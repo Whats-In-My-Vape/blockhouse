@@ -27,4 +27,8 @@
   <string name="note_content">notes</string>
   <string name="add_note">add note</string>
   <string name="set_date">set Date</string>
+  <string name="visited_blockhouses">Visited Blockhouses:</string>
+  <string name="total_blockhouses">Total Blockhouses:</string>
+  <string name="delete_image">DELETE IMAGE</string>
+
 </resources>
