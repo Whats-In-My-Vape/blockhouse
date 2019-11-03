@@ -30,5 +30,6 @@
   <string name="visited_blockhouses">Visited Blockhouses:</string>
   <string name="total_blockhouses">Total Blockhouses:</string>
   <string name="delete_image">DELETE IMAGE</string>
+  <string name="date_visited_hint">Date Visited: DD/MM/YYYY</string>
 
 </resources>
