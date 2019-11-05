@@ -38,3 +38,6 @@
 
 * reinstall to login if login won't work
 * image not showing in creation page after an image is selected
+
+## fixes
+* Clear application cache to fix login error
