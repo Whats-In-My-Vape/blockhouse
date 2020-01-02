@@ -14,6 +14,7 @@ class BlockhouseMemStore : UserStore, AnkoLogger {
 
   val blockhouses = ArrayList<BlockhouseModel>()
 
+
   override fun findAll(): List<BlockhouseModel> {
     return blockhouses
   }
@@ -22,7 +23,8 @@ class BlockhouseMemStore : UserStore, AnkoLogger {
     return foundBlockhoue
   }
 
-  override fun create(blockhouse: BlockhouseModel) {
+  override fun createBlockhouse(user: UserModel, blockhouse: BlockhouseModel) {
+
     blockhouse.id = getId()
     blockhouses.add(blockhouse)
     logAll()
@@ -34,9 +36,9 @@ class BlockhouseMemStore : UserStore, AnkoLogger {
       foundBlockhouse.title = blockhouse.title
       foundBlockhouse.description = blockhouse.description
       foundBlockhouse.image = blockhouse.image
-      foundBlockhouse.lat = blockhouse.lat
-      foundBlockhouse.lng = blockhouse.lng
-      foundBlockhouse.zoom = blockhouse.zoom
+      foundBlockhouse.location.lat = blockhouse.location.lat
+      foundBlockhouse.location.lng = blockhouse.location.lng
+      foundBlockhouse.location.zoom = blockhouse.location.zoom
       logAll();
     }
   }
@@ -51,4 +53,5 @@ class BlockhouseMemStore : UserStore, AnkoLogger {
   override fun clear() {
     blockhouses.clear()
   }
-}*/
+}
+*/

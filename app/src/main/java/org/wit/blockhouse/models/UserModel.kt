@@ -6,10 +6,10 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class UserModel(
-    var id: Int = 0,
+    var id: Long = 0,
     var name: String = "",
     var email: String = "",
     var password: String = "",
-    var blockhouses: ArrayList<BlockhouseModel> = ArrayList()
+    var blockhouses: Int = 0
 ) : Parcelable
 

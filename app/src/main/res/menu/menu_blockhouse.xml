@@ -8,7 +8,12 @@
       app:showAsAction="always"/>
 
   <item
-      android:id="@+id/btnAdd"
+      android:id="@+id/item_delete"
+      android:title="@string/menu_deleteBlockhouse"
+      app:showAsAction="always"/>
+
+  <item
+      android:id="@+id/item_save"
       android:title="@string/button_save"
       app:showAsAction="always"/>
 

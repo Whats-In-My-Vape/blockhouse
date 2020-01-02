@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.authorisation
 
 import android.os.Bundle
@@ -23,4 +24,4 @@ class ArrivalActivity : AppCompatActivity(), AnkoLogger {
             finish()
         }
     }
-}
+}*/

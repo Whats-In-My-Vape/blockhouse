@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.activities
 
 import android.app.Activity
@@ -22,7 +23,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerD
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_map)
+    setContentView(R.layout.activity_blockhouse_map)
     location = intent.extras?.getParcelable<Location>("location")!!
     val mapFragment = supportFragmentManager
       .findFragmentById(R.id.map) as SupportMapFragment
@@ -69,4 +70,4 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerD
     marker.setSnippet("GPS : " + loc.toString())
     return false
   }
-}
+}*/

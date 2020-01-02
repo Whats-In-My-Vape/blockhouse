@@ -1,18 +1,23 @@
 package org.wit.blockhouse.models
 
 import android.os.Parcelable
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@Entity
 data class BlockhouseModel(
-    var id: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
     var title: String = "",
     var description: String = "",
     var date: String = "",
-    var location: Location = Location(),
-    var note: List<String> = ArrayList(),
-    var image_list: List<String> = ArrayList(),
-    var check_box: Boolean = false,
+    @Embedded var location: Location = Location(),
+    //@Embedded var note: List<String> = ArrayList(),
+    //@Embedded var image_list: List<String> = ArrayList(),
+    //@Embedded var check_box: Boolean = false,
     var image: String = ""
 ) : Parcelable
 

@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.authorisation
 
 import android.content.Intent
@@ -8,7 +9,7 @@ import kotlinx.android.synthetic.main.settings_page.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.toast
 import org.wit.blockhouse.R
-import org.wit.blockhouse.activities.BlockhouseListActivity
+import org.wit.blockhouse.views.blockhouseList.BlockhouseListPresenter
 import org.wit.blockhouse.main.MainApp
 import org.wit.blockhouse.models.BlockhouseModel
 import org.wit.blockhouse.models.UserModel
@@ -77,4 +78,4 @@ class UserSettings : AppCompatActivity(), AnkoLogger {
         newPasswd.setText("")
     }
 
-}
+}*/

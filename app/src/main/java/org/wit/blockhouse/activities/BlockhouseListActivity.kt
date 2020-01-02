@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.activities
 
 import android.content.Intent
@@ -11,13 +12,14 @@ import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 import org.wit.blockhouse.authorisation.LoginActivity
 import org.wit.blockhouse.authorisation.UserSettings
-import org.wit.blockhouse.adapters.BlockhouseAdapter
-import org.wit.blockhouse.adapters.BlockhouseListener
+import org.wit.blockhouse.views.blockhouseList.BlockhouseAdapter
+import org.wit.blockhouse.views.blockhouseList.BlockhouseListener
 import org.wit.blockhouse.R
 import org.wit.blockhouse.main.MainApp
 import org.wit.blockhouse.models.BlockhouseModel
 
-class BlockhouseListActivity : AppCompatActivity(), BlockhouseListener {
+class BlockhouseListActivity : AppCompatActivity(),
+    BlockhouseListener {
 
   lateinit var app: MainApp
 
@@ -40,7 +42,8 @@ class BlockhouseListActivity : AppCompatActivity(), BlockhouseListener {
   }
 
   fun showBlockhouses (blockhouses: List<BlockhouseModel>) {
-    recyclerView.adapter = BlockhouseAdapter(blockhouses, this)
+    recyclerView.adapter =
+        BlockhouseAdapter(blockhouses, this)
     recyclerView.adapter?.notifyDataSetChanged()
   }
 
@@ -83,4 +86,4 @@ class BlockhouseListActivity : AppCompatActivity(), BlockhouseListener {
     startActivity(intent)
     finish()
   }
-}
+}*/

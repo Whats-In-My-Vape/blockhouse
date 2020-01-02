@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.activities
 
 import android.app.Activity
@@ -154,12 +155,14 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
             loadNotes()
             loadImage()
 
-            /*if (blockhouse.image_list.size == 0) {
+            */
+/*if (blockhouse.image_list.size == 0) {
                 blockhouseImage.setImageResource(R.drawable.splash)
             } else {
                 blockhouseImage.setImageBitmap(readImageFromPath(this, blockhouse.image))
             }
-*/
+*//*
+
             location = blockhouse.location
             lat.setText("LAT: ${DecimalFormat("#.##").format(location.lat)}")
             lng.setText("LNG: ${DecimalFormat("#.##").format(location.lng)}")
@@ -196,7 +199,7 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
                     toast("Add Failed -> Please enter Blockhouse details next time")
                 } else {
                     if (edit) {
-                        app.users.updateBlockhouse(app.currentUser, blockhouse)
+                        app.bl
                         toast("UPDATING ....")
                     } else {
                         try {
@@ -316,3 +319,4 @@ class BlockhouseActivity : AppCompatActivity(), AnkoLogger, NoteListener, ImageL
     }
 }
 
+*/

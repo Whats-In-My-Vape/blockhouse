@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.authorisation
 
 import android.content.Intent
@@ -68,4 +69,4 @@ class LoginActivity : AppCompatActivity(), AnkoLogger {
             }
         }
     }
-}
+}*/
