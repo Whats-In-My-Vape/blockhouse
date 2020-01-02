@@ -1,6 +1,5 @@
 package org.wit.blockhouse.views.map
 
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -11,7 +10,6 @@ import org.wit.blockhouse.views.BasePresenter
 import org.wit.blockhouse.views.BaseView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-
 
 class BlockhouseMapPresenter(view: BaseView) : BasePresenter(view) {
 

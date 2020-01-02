@@ -13,14 +13,14 @@ import org.wit.blockhouse.models.BlockhouseModel
 class BlockhouseMapView : BaseView(), GoogleMap.OnMarkerClickListener {
 
     lateinit var presenter: BlockhouseMapPresenter
-    lateinit var map : GoogleMap
+    lateinit var map: GoogleMap
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blockhouse_map)
         super.init(toolbar, true)
-        presenter = initPresenter (BlockhouseMapPresenter(this)) as BlockhouseMapPresenter
+        presenter = initPresenter(BlockhouseMapPresenter(this)) as BlockhouseMapPresenter
 
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync {
