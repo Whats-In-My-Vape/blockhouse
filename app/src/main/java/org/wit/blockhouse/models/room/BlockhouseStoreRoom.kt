@@ -36,4 +36,7 @@ class BlockhouseStoreRoom (val context: Context) : BlockhouseStore {
     override fun delete(blockhouse: BlockhouseModel) {
         dao.deleteBlockhouse(blockhouse)
     }
+
+    override fun clear() {
+    }
 }

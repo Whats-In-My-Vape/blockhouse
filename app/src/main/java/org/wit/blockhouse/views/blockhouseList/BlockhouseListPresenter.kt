@@ -6,6 +6,7 @@ import org.wit.blockhouse.views.BaseView
 import org.wit.blockhouse.views.BasePresenter
 import org.wit.blockhouse.views.VIEW
 import org.wit.blockhouse.models.BlockhouseModel
+import com.google.firebase.auth.FirebaseAuth
 
 class BlockhouseListPresenter (view: BaseView) : BasePresenter(view){
 
@@ -30,5 +31,11 @@ class BlockhouseListPresenter (view: BaseView) : BasePresenter(view){
                 view?.showBlockhouses(blockhouses)
             }
         }
+    }
+    fun doLogout() {
+
+        FirebaseAuth.getInstance().signOut()
+        app.blockhouses.clear()
+        view?.navigateTo(VIEW.LOGIN)
     }
 }

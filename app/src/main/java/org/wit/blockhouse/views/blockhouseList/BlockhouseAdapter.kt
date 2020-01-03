@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_blockhouse.view.*
 import org.wit.blockhouse.R
+import com.bumptech.glide.Glide
 import org.wit.blockhouse.helpers.readImageFromPath
 import org.wit.blockhouse.models.BlockhouseModel
 import java.text.DecimalFormat
@@ -49,7 +50,7 @@ class BlockhouseAdapter constructor(
             itemView.cardLocation.text = "$lt | $lg"
 
             itemView.setOnClickListener { listener.onBlockhouseClick(blockhouse) }
-            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, blockhouse.image))
+            Glide.with(itemView.context).load(blockhouse.image).into(itemView.imageIcon)
         }
     }
 }

@@ -1,16 +1,13 @@
 package org.wit.blockhouse.views.editLocation
 
-
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import org.wit.blockhouse.R
 import org.wit.blockhouse.views.BaseView
 import kotlinx.android.synthetic.main.activity_edit_location.*
-
 
 class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener {
 

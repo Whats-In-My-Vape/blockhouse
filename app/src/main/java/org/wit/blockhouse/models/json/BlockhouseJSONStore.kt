@@ -79,4 +79,8 @@ class BlockhouseJSONStore(val context: Context) :  BlockhouseStore, AnkoLogger {
     return foundBlockhouse
   }
 
+  override fun clear(){
+    blockhouses.clear()
+  }
+
 }

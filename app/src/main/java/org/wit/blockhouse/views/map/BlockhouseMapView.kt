@@ -1,10 +1,10 @@
 package org.wit.blockhouse.views.map
 
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import org.wit.blockhouse.R
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
-import org.wit.blockhouse.helpers.readImageFromPath
 import org.wit.blockhouse.views.BaseView
 import kotlinx.android.synthetic.main.activity_blockhouse_map.*
 import kotlinx.android.synthetic.main.content_blockhouse_maps.*
@@ -33,7 +33,7 @@ class BlockhouseMapView : BaseView(), GoogleMap.OnMarkerClickListener {
     override fun showBlockhouse(blockhouse: BlockhouseModel) {
         currentTitle.text = blockhouse.title
         currentDescription.text = blockhouse.description
-        currentImage.setImageBitmap(readImageFromPath(this, blockhouse.image))
+        Glide.with(this).load(blockhouse.image).into(currentImage);
     }
 
 

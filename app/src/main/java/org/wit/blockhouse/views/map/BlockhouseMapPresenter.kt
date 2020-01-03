@@ -27,7 +27,7 @@ class BlockhouseMapPresenter(view: BaseView) : BasePresenter(view) {
     fun doMarkerSelected(marker: Marker) {
         val tag = marker.tag as Long
         doAsync {
-            val blockhouse = app.blockhouses.findById(tag)
+            val blockhouse = marker.tag as BlockhouseModel
             uiThread {
                 if (blockhouse != null) view?.showBlockhouse(blockhouse)
             }

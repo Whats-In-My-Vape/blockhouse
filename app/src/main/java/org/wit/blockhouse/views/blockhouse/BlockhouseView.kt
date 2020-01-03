@@ -2,11 +2,10 @@ package org.wit.blockhouse.views.blockhouse
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import org.wit.blockhouse.R
-import org.wit.blockhouse.helpers.readImageFromPath
 import org.wit.blockhouse.models.BlockhouseModel
 import org.wit.blockhouse.models.Location
 import org.wit.blockhouse.views.BaseView
@@ -14,8 +13,6 @@ import kotlinx.android.synthetic.main.activity_blockhouse.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
-
-
 
 class BlockhouseView : BaseView(), AnkoLogger {
 
@@ -40,7 +37,7 @@ class BlockhouseView : BaseView(), AnkoLogger {
     override fun showBlockhouse(blockhouse: BlockhouseModel) {
         blockhouseName.setText(blockhouse.title)
         description.setText(blockhouse.description)
-        blockhouseImage.setImageBitmap(readImageFromPath(this, blockhouse.image))
+        Glide.with(this).load(blockhouse.image).into(blockhouseImage)
         chooseImage.setText(R.string.change_image)
         this.showLocation(blockhouse.location)
     }
