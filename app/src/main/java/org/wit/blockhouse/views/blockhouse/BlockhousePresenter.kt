@@ -65,9 +65,11 @@ class BlockhousePresenter(view: BaseView) : BasePresenter(view) {
             locationService.requestLocationUpdates(locationRequest, locationCallback, null)
         }
     }
-    fun doAddOrSave(title: String, description: String) {
+    fun doAddOrSave(title: String, description: String, favourite: Boolean, rating: Float) {
         blockhouse.title = title
         blockhouse.description = description
+        blockhouse.favourite = favourite
+        blockhouse.rating = rating
         doAsync {
             if (edit) {
                 app.blockhouses.update(blockhouse)
@@ -101,6 +103,10 @@ class BlockhousePresenter(view: BaseView) : BasePresenter(view) {
 
     fun doSetLocation() {
         view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", Location(blockhouse.location.lat, blockhouse.location.lng, blockhouse.location.zoom))
+    }
+
+    fun doFavourite() {
+       blockhouse.favourite = true
     }
 
     override fun doRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {

@@ -44,4 +44,8 @@
   <string name="title_activity_edit_location">Blockhouse</string>
   <string name="title_activity_login"> Signup | Login to Blockhouse</string>
   <string name="title_activity_blockhouse_maps">Map of all Blockhouses</string>
+  <string name="favourite"> Favourite this Blockhouse!</string>
+  <string name="menu_logout">Log out</string>
+  <string name="title_home">Home</string>
+
 </resources>

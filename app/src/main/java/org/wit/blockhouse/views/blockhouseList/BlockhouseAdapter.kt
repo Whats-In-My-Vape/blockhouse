@@ -41,13 +41,16 @@ class BlockhouseAdapter constructor(
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(blockhouse: BlockhouseModel, listener: BlockhouseListener) {
-            itemView.blockhouseTitle.text = blockhouse.title
+            itemView.blockhouseName.text = blockhouse.title
             itemView.description.text = blockhouse.description
            // itemView.cardCheck.text = "Visited: ${blockhouse.check_box}"
 
-            val lt = "LAT: ${DecimalFormat("#.##").format(blockhouse.location.lat)}"
-            val lg = "LAT: ${DecimalFormat("#.##").format(blockhouse.location.lng)}"
-            itemView.cardLocation.text = "$lt | $lg"
+            if (blockhouse.favourite)
+            {
+                itemView.favourite.setImageResource(R.drawable.ic_check_box_outline_blank_24px)
+            } else {
+                itemView.favourite.setImageResource(R.drawable.ic_check_box_24px)
+            }
 
             itemView.setOnClickListener { listener.onBlockhouseClick(blockhouse) }
             Glide.with(itemView.context).load(blockhouse.image).into(itemView.imageIcon)

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.CheckBox
 import com.bumptech.glide.Glide
 import org.wit.blockhouse.R
 import org.wit.blockhouse.models.BlockhouseModel
@@ -25,7 +27,7 @@ class BlockhouseView : BaseView(), AnkoLogger {
         setContentView(R.layout.activity_blockhouse)
         super.init(toolbarAdd, true)
         info("Blockhouse Activity initialized")
-        presenter = initPresenter (BlockhousePresenter(this)) as BlockhousePresenter
+        presenter = initPresenter(BlockhousePresenter(this)) as BlockhousePresenter
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync {
             presenter.doConfigureMap(it)
@@ -37,6 +39,9 @@ class BlockhouseView : BaseView(), AnkoLogger {
     override fun showBlockhouse(blockhouse: BlockhouseModel) {
         blockhouseName.setText(blockhouse.title)
         description.setText(blockhouse.description)
+        if (blockhouse.favourite) {
+            favourite.isChecked()
+        }
         Glide.with(this).load(blockhouse.image).into(blockhouseImage)
         chooseImage.setText(R.string.change_image)
         this.showLocation(blockhouse.location)
@@ -65,7 +70,12 @@ class BlockhouseView : BaseView(), AnkoLogger {
                 if (blockhouseName.text.toString().isEmpty()) {
                     toast(R.string.hint_blockhouseName)
                 } else {
-                    presenter.doAddOrSave(blockhouseName.text.toString(), description.text.toString())
+                    presenter.doAddOrSave(
+                        blockhouseName.text.toString(),
+                        description.text.toString(),
+                        favourite.isChecked,
+                        ratingBar.rating
+                    )
                 }
             }
         }
@@ -82,6 +92,7 @@ class BlockhouseView : BaseView(), AnkoLogger {
     override fun onBackPressed() {
         presenter.doCancel()
     }
+
     override fun onDestroy() {
         super.onDestroy()
         mapView.onDestroy()
@@ -106,5 +117,22 @@ class BlockhouseView : BaseView(), AnkoLogger {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         mapView.onSaveInstanceState(outState)
+    }
+
+    fun onCheckboxClicked(view: View) {
+        if (view is CheckBox) {
+            val checked: Boolean = view.isChecked
+
+            when (view.id) {
+                R.id.favourite -> {
+                    if (checked) {
+                        presenter.doFavourite()
+                    } else {
+
+                    }
+                }
+
+            }
+        }
     }
 }
