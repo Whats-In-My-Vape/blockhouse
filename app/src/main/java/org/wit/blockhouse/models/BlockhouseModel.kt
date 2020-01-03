@@ -15,6 +15,8 @@ data class BlockhouseModel(
     var title: String = "",
     var description: String = "",
     var date: String = "",
+    var favourite: Boolean = false,
+    var rating: Float = 0f,
     @Embedded var location: Location = Location(),
     var image: String = ""
 ) : Parcelable

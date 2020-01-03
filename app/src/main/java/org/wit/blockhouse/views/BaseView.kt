@@ -3,6 +3,8 @@ package org.wit.blockhouse.views
 import android.content.Intent
 
 import android.os.Parcelable
+import android.view.Menu
+import org.wit.blockhouse.R
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
@@ -59,6 +61,13 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
     override fun onDestroy() {
         basePresenter?.onDestroy()
         super.onDestroy()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(
+            R.menu.bottom_navigation_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
     }
 
 
