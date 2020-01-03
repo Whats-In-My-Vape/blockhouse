@@ -1,4 +1,4 @@
-package org.wit.blockhouse.adapters
+package org.wit.blockhouse.views.blockhouseList
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_blockhouse.view.*
 import org.wit.blockhouse.R
+import com.bumptech.glide.Glide
 import org.wit.blockhouse.helpers.readImageFromPath
 import org.wit.blockhouse.models.BlockhouseModel
 import java.text.DecimalFormat
 
 interface BlockhouseListener {
     fun onBlockhouseClick(blockhouse: BlockhouseModel)
-    fun del(blockhouse: BlockhouseModel)
+
 }
 
 class BlockhouseAdapter constructor(
@@ -42,16 +43,14 @@ class BlockhouseAdapter constructor(
         fun bind(blockhouse: BlockhouseModel, listener: BlockhouseListener) {
             itemView.blockhouseTitle.text = blockhouse.title
             itemView.description.text = blockhouse.description
-            itemView.cardCheck.text = "Visited: ${blockhouse.check_box}"
+           // itemView.cardCheck.text = "Visited: ${blockhouse.check_box}"
 
             val lt = "LAT: ${DecimalFormat("#.##").format(blockhouse.location.lat)}"
             val lg = "LAT: ${DecimalFormat("#.##").format(blockhouse.location.lng)}"
             itemView.cardLocation.text = "$lt | $lg"
 
             itemView.setOnClickListener { listener.onBlockhouseClick(blockhouse) }
-            itemView.delete_blockhouse.setOnClickListener { listener.del(blockhouse) }
-
-            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, blockhouse.image))
+            Glide.with(itemView.context).load(blockhouse.image).into(itemView.imageIcon)
         }
     }
 }

@@ -1,3 +1,4 @@
+/*
 package org.wit.blockhouse.activities
 
 import android.content.Intent
@@ -12,6 +13,7 @@ import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 import org.wit.blockhouse.authorisation.LoginActivity
+import org.wit.blockhouse.views.auth.*
 import org.wit.blockhouse.authorisation.UserSettings
 import org.wit.blockhouse.R
 import org.wit.blockhouse.main.MainApp
@@ -39,12 +41,12 @@ class StatisticsActivity : AppCompatActivity(), AnkoLogger {
     }
 
     private fun countBlockhouses(): Int {
-        return app.users.findAllBlockhouses(app.currentUser).size
+        return app.blockhouses.findAll(app.blockhouses).size
     }
 
     private fun countVisits(): Int {
         var total = 0
-        val blockhouses: List<BlockhouseModel> = app.users.findAllBlockhouses(app.currentUser)
+        val blockhouses: List<BlockhouseModel> = app.findAll(app.blockhouses)
 
         for (visits in blockhouses) {
             if (visits.check_box) {
@@ -94,7 +96,7 @@ class StatisticsActivity : AppCompatActivity(), AnkoLogger {
     }
 
     fun logout() {
-        val intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, LoginPresenter::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
         finish()
@@ -102,3 +104,4 @@ class StatisticsActivity : AppCompatActivity(), AnkoLogger {
 }
 
 
+*/

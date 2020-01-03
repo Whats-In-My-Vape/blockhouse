@@ -1,10 +1,11 @@
 <resources>
   <string name="app_name">Blockhouse</string>
-  <string name="hint_blockhouseTitle">Blockhouse Name</string>
+  <string name="hint_blockhouseName">Blockhouse Name</string>
   <string name="hint_blockhouseDescription">Description </string>
   <string name="enter_blockhouse_title"> Please enter a Blockhouse Title </string>
   <string name="button_save">Save</string>
   <string name="menu_addBlockhouse">Add</string>
+  <string name="menu_deleteBlockhouse">Delete</string>
   <string name="menu_cancelBlockhouse">Cancel</string>
   <string name="stats">Stats</string>
   <string name="settings">Settings</string>
@@ -31,5 +32,16 @@
   <string name="total_blockhouses">Total Blockhouses:</string>
   <string name="delete_image">DELETE IMAGE</string>
   <string name="date_visited_hint">Date Visited: DD/MM/YYYY</string>
-
+  <string name="menu_save_Blockhouse">Save Blockhouse</string>
+  <string name="blockhouse_title_placeholder">Blockhouse Title</string>
+  <string name="blockhouse_image_placeholder">Blockhouse Image</string>
+  <string name="blockhouse_description_placeholder">Description</string>
+  <string name="_00_000000">00.000000</string>
+  <string name="image">image</string>
+  <string name="change_image">Change Image</string>
+  <string name="title_activity_blockhouse_list">Blockhouse</string>
+  <string name="title_activity_blockhouse">Blockhouse</string>
+  <string name="title_activity_edit_location">Blockhouse</string>
+  <string name="title_activity_login"> Signup | Login to Blockhouse</string>
+  <string name="title_activity_blockhouse_maps">Map of all Blockhouses</string>
 </resources>

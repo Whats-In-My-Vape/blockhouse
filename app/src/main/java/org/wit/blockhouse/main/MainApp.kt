@@ -1,32 +1,32 @@
 package org.wit.blockhouse.main
 
 import android.app.Application
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
+import com.google.firebase.database.FirebaseDatabase
+import org.jetbrains.anko.*
 import org.wit.blockhouse.R
-import org.wit.blockhouse.models.BlockhouseJSONStore
-import org.wit.blockhouse.models.UserModel
-import org.wit.blockhouse.models.UserStore
+import org.wit.blockhouse.models.BlockhouseStore
+import org.wit.blockhouse.models.firebase.BlockhouseFireStore
 import java.lang.Thread.sleep
 
 class MainApp : Application(), AnkoLogger {
 
-    val emailRegex =
-        "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-
-
-    lateinit var users: UserStore
-    lateinit var currentUser: UserModel
+    // lateinit var users: UserStore
+    // lateinit var currentUser: UserModel
+    lateinit var blockhouses: BlockhouseStore
 
     override fun onCreate() {
         sleep(2000)
         setTheme(R.style.AppTheme)
         super.onCreate()
-        users = BlockhouseJSONStore(applicationContext)
-        info("Blockhouse started")
-    }
 
-    fun isEmailValid(email: String): Boolean {
-        return emailRegex.toRegex().matches(email)
+        /*
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("message")
+        myRef.setValue("Hello, World!")
+        */
+
+        blockhouses = BlockhouseFireStore(applicationContext)
+
+
     }
 }

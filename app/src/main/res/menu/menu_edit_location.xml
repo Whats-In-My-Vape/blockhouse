@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/item_back"
-        android:title="Back"
-        app:showAsAction="always" />
-
+        android:id="@+id/item_save"
+        android:title="@string/button_save"
+        app:showAsAction="always"/>
 </menu>

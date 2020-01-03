@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <item
       android:id="@+id/item_cancel"
@@ -8,19 +9,13 @@
       app:showAsAction="always"/>
 
   <item
-      android:id="@+id/btnAdd"
-      android:title="@string/button_save"
+      android:id="@+id/item_delete"
+      android:title="@string/menu_deleteBlockhouse"
       app:showAsAction="always"/>
 
   <item
-      android:id="@+id/stats"
-      android:orderInCategory="100"
-      android:title="@string/stats"
-      app:showAsAction="never" />
+      android:id="@+id/item_save"
+      android:title="@string/button_save"
+      app:showAsAction="always"/>
 
-  <item
-      android:id="@+id/settings"
-      android:orderInCategory="100"
-      android:title="@string/settings"
-      app:showAsAction="never" />
 </menu>
