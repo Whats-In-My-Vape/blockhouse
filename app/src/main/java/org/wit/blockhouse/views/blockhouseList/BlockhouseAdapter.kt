@@ -51,7 +51,7 @@ class BlockhouseAdapter constructor(
             } else {
                 itemView.favourite.setImageResource(R.drawable.ic_check_box_24px)
             }
-            itemView.ratingBar2.setRating(blockhouse.rating)
+            itemView.ratingBar2.rating = blockhouse.rating
             itemView.setOnClickListener { listener.onBlockhouseClick(blockhouse) }
             Glide.with(itemView.context).load(blockhouse.image).into(itemView.imageIcon)
         }
