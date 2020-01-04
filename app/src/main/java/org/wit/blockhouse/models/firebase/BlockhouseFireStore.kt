@@ -13,9 +13,6 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import android.R.string.no
-import android.R.attr.name
-
 
 class BlockhouseFireStore(val context: android.content.Context) : BlockhouseStore, AnkoLogger {
 
@@ -57,6 +54,7 @@ class BlockhouseFireStore(val context: android.content.Context) : BlockhouseStor
         db.child("users").child(userId).child("blockhouses").child(blockhouse.fbId)
             .setValue(blockhouse)
         if ((blockhouse.image.length) > 0 && (blockhouse.image[0] != 'h')) {
+            update(blockhouse)
             updateImage(blockhouse)
         }
     }
@@ -73,7 +71,7 @@ class BlockhouseFireStore(val context: android.content.Context) : BlockhouseStor
     fun updateImage(blockhouse: BlockhouseModel) {
         if (blockhouse.image != "") {
             val fileName = File(blockhouse.image)
-            val imageName = fileName.getName()
+            val imageName = fileName.name
 
             var imageRef = st.child(userId + '/' + imageName)
             val baos = ByteArrayOutputStream()
@@ -102,7 +100,7 @@ class BlockhouseFireStore(val context: android.content.Context) : BlockhouseStor
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot!!.children.mapNotNullTo(blockhouses) {
+                dataSnapshot.children.mapNotNullTo(blockhouses) {
                     it.getValue<BlockhouseModel>(
                         BlockhouseModel::class.java
                     )

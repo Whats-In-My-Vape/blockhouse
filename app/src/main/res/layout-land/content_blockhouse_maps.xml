@@ -12,16 +12,18 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_width="361dp"
-        android:layout_height="451dp"
+        android:layout_width="429dp"
+        android:layout_height="202dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -43,11 +45,12 @@
                 android:id="@+id/currentImage"
                 android:layout_width="121dp"
                 android:layout_height="98dp"
+                android:layout_marginEnd="4dp"
                 android:contentDescription="@string/blockhouse_image_placeholder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.482"
+                app:layout_constraintVertical_bias="0.241"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
@@ -57,30 +60,29 @@
                 android:text="@string/blockhouse_title_placeholder"
                 app:layout_constraintBottom_toTopOf="@+id/currentDescription"
                 app:layout_constraintEnd_toStartOf="@+id/currentImage"
-                app:layout_constraintHorizontal_bias="0.363"
+                app:layout_constraintHorizontal_bias="0.29"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.352" />
 
             <TextView
                 android:id="@+id/currentDescription"
                 android:layout_width="173dp"
                 android:layout_height="48dp"
-                android:layout_marginBottom="56dp"
+                android:layout_marginBottom="40dp"
                 android:text="@string/blockhouse_description_placeholder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/currentImage"
-                app:layout_constraintHorizontal_bias="0.347"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/currentTitle" />
 
             <RatingBar
-                android:layout_width="240dp"
-                android:layout_height="41dp"
-                android:layout_marginBottom="4dp"
+                android:layout_width="248dp"
+                android:layout_height="46dp"
                 android:numStars="5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/currentImage"
-                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

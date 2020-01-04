@@ -40,22 +40,24 @@ class BlockhouseView : BaseView(), AnkoLogger {
         blockhouseName.setText(blockhouse.title)
         description.setText(blockhouse.description)
         if (blockhouse.favourite) {
-            favourite.isChecked()
+            favourite.isChecked
         }
         Glide.with(this).load(blockhouse.image).into(blockhouseImage)
-        chooseImage.setText(R.string.change_image)
+        if (null != blockhouse.image) {
+            chooseImage.setText(R.string.change_image)
+        }
         this.showLocation(blockhouse.location)
     }
 
     override fun showLocation(location: Location) {
-        lat.setText("%.6f".format(location.lat))
-        lng.setText("%.6f".format(location.lng))
+        lat.text = "%.6f".format(location.lat)
+        lng.text = "%.6f".format(location.lng)
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_blockhouse, menu)
-        if (presenter.edit && menu != null) menu.getItem(1).setVisible(true)
+        if (presenter.edit && menu != null) menu.getItem(1).isVisible = true
         return super.onCreateOptionsMenu(menu)
     }
 

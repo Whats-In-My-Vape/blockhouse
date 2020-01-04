@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_blockhouse.view.*
 import org.wit.blockhouse.R
 import com.bumptech.glide.Glide
-import org.wit.blockhouse.helpers.readImageFromPath
 import org.wit.blockhouse.models.BlockhouseModel
-import java.text.DecimalFormat
+import kotlinx.android.synthetic.main.card_blockhouse.view.favourite
+import kotlinx.android.synthetic.main.card_blockhouse.view.description
+import kotlinx.android.synthetic.main.card_blockhouse.view.blockhouseName
+import kotlinx.android.synthetic.main.card_blockhouse.view.ratingBar2
 
 interface BlockhouseListener {
     fun onBlockhouseClick(blockhouse: BlockhouseModel)
@@ -17,7 +19,7 @@ interface BlockhouseListener {
 }
 
 class BlockhouseAdapter constructor(
-    private var blockhouses : List<BlockhouseModel>,
+    private var blockhouses: List<BlockhouseModel>,
     private val listener: BlockhouseListener
 ) : RecyclerView.Adapter<BlockhouseAdapter.MainHolder>() {
 
@@ -43,15 +45,13 @@ class BlockhouseAdapter constructor(
         fun bind(blockhouse: BlockhouseModel, listener: BlockhouseListener) {
             itemView.blockhouseName.text = blockhouse.title
             itemView.description.text = blockhouse.description
-           // itemView.cardCheck.text = "Visited: ${blockhouse.check_box}"
-
-            if (blockhouse.favourite)
-            {
+            // set status of the favourite checkbox
+            if (blockhouse.favourite) {
                 itemView.favourite.setImageResource(R.drawable.ic_check_box_outline_blank_24px)
             } else {
                 itemView.favourite.setImageResource(R.drawable.ic_check_box_24px)
             }
-
+            itemView.ratingBar2.setRating(blockhouse.rating)
             itemView.setOnClickListener { listener.onBlockhouseClick(blockhouse) }
             Glide.with(itemView.context).load(blockhouse.image).into(itemView.imageIcon)
         }

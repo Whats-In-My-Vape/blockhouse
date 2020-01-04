@@ -15,7 +15,7 @@ class BlockhouseMapPresenter(view: BaseView) : BasePresenter(view) {
 
 
     fun doPopulateMap(map: GoogleMap, blockhouses: List<BlockhouseModel>) {
-        map.uiSettings.setZoomControlsEnabled(true)
+        map.uiSettings.isZoomControlsEnabled = true
         blockhouses.forEach {
             val loc = LatLng(it.location.lat, it.location.lng)
             val options = MarkerOptions().title(it.title).position(loc)
@@ -29,7 +29,7 @@ class BlockhouseMapPresenter(view: BaseView) : BasePresenter(view) {
         doAsync {
             val blockhouse = marker.tag as BlockhouseModel
             uiThread {
-                if (blockhouse != null) view?.showBlockhouse(blockhouse)
+                view?.showBlockhouse(blockhouse)
             }
         }
     }

@@ -1,7 +1,5 @@
 package org.wit.blockhouse.views.editLocation
 
-
-import android.app.Activity
 import android.content.Intent
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,8 +21,8 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
         val loc = LatLng(location.lat, location.lng)
 
         val options = MarkerOptions()
-            .title("Hillfort")
-            .snippet("GPS : " + loc.toString())
+            .title("Blockhouse")
+            .snippet("GPS : $loc")
             .draggable(true)
             .position(loc)
         map.addMarker(options)
@@ -45,6 +43,6 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
 
     fun doUpdateMarker(marker: Marker) {
         val loc = LatLng(location.lat, location.lng)
-        marker.setSnippet("GPS : " + loc.toString())
+        marker.snippet = "GPS : $loc"
     }
 }

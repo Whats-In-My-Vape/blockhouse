@@ -24,7 +24,7 @@ enum class VIEW {
     LOCATION, BLOCKHOUSE, MAPS, LIST, LOGIN
 }
 
-open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
+open abstract class BaseView : AppCompatActivity(), AnkoLogger {
 
     var basePresenter: BasePresenter? = null
 
@@ -63,12 +63,12 @@ open abstract class BaseView() : AppCompatActivity(), AnkoLogger {
         super.onDestroy()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(
             R.menu.bottom_navigation_menu, menu)
 
         return super.onCreateOptionsMenu(menu)
-    }
+    }*/
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
