@@ -14,11 +14,10 @@ data class BlockhouseModel(
     var fbId : String = "",
     var title: String = "",
     var description: String = "",
-    var date: String = "",
+    var image: String = "",
     var favourite: Boolean = false,
     var rating: Float = 0f,
-    @Embedded var location: Location = Location(),
-    var image: String = ""
+    @Embedded var location: Location = Location()
 ) : Parcelable
 
 @Parcelize

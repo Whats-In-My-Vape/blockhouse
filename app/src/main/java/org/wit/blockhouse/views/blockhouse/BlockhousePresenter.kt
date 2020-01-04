@@ -13,12 +13,10 @@ import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.blockhouse.helpers.checkLocationPermissions
 import org.wit.blockhouse.helpers.createDefaultLocationRequest
 import org.wit.blockhouse.helpers.isPermissionGranted
-
 import org.wit.blockhouse.helpers.showImagePicker
 import org.wit.blockhouse.models.Location
 import org.wit.blockhouse.models.BlockhouseModel
 import org.wit.blockhouse.views.*
-
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -27,8 +25,9 @@ class BlockhousePresenter(view: BaseView) : BasePresenter(view) {
     var map: GoogleMap? = null
     var blockhouse = BlockhouseModel()
     var defaultLocation = Location(52.245696, -7.139102, 15f)
-    var edit = false;
-    var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
+    var edit = false
+    var locationService: FusedLocationProviderClient =
+        LocationServices.getFusedLocationProviderClient(view)
     val locationRequest = createDefaultLocationRequest()
 
     init {
@@ -65,11 +64,13 @@ class BlockhousePresenter(view: BaseView) : BasePresenter(view) {
             locationService.requestLocationUpdates(locationRequest, locationCallback, null)
         }
     }
+
     fun doAddOrSave(title: String, description: String, favourite: Boolean, rating: Float) {
         blockhouse.title = title
         blockhouse.description = description
         blockhouse.favourite = favourite
         blockhouse.rating = rating
+
         doAsync {
             if (edit) {
                 app.blockhouses.update(blockhouse)
@@ -102,14 +103,23 @@ class BlockhousePresenter(view: BaseView) : BasePresenter(view) {
     }
 
     fun doSetLocation() {
-        view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", Location(blockhouse.location.lat, blockhouse.location.lng, blockhouse.location.zoom))
+        view?.navigateTo(
+            VIEW.LOCATION,
+            LOCATION_REQUEST,
+            "location",
+            Location(blockhouse.location.lat, blockhouse.location.lng, blockhouse.location.zoom)
+        )
     }
 
     fun doFavourite() {
-       blockhouse.favourite = true
+        blockhouse.favourite = true
     }
 
-    override fun doRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun doRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         if (isPermissionGranted(requestCode, grantResults)) {
             doSetCurrentLocation()
         } else {
@@ -140,9 +150,10 @@ class BlockhousePresenter(view: BaseView) : BasePresenter(view) {
         blockhouse.location = location
         blockhouse.location.zoom = 15f
         map?.clear()
-        map?.uiSettings?.setZoomControlsEnabled(true)
+        map?.uiSettings?.isZoomControlsEnabled = true
         val options =
-            MarkerOptions().title(blockhouse.title).position(LatLng(blockhouse.location.lat, blockhouse.location.lng))
+            MarkerOptions().title(blockhouse.title)
+                .position(LatLng(blockhouse.location.lat, blockhouse.location.lng))
         map?.addMarker(options)
         map?.moveCamera(
             CameraUpdateFactory.newLatLngZoom(

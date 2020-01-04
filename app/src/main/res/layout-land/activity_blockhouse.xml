@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/gradient_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.blockhouse.BlockhouseView"
-    >
+    android:background="@drawable/gradient_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/appBarLayout"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginTop="-34dp"
+            android:layout_marginBottom="34dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="-1dp">
 
@@ -48,7 +47,8 @@
                 android:id="@+id/blockhouseName"
                 android:layout_width="201dp"
                 android:layout_height="34dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
                 android:autofillHints=""
                 android:background="@drawable/gradient_background"
                 android:hint="@string/hint_blockhouseName"
@@ -60,8 +60,8 @@
                 android:textSize="14sp"
                 android:typeface="monospace"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/blockhouseImage"
+                app:layout_constraintHorizontal_bias="0.076"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/blockhouseImage">
 
                 <requestFocus />
@@ -89,10 +89,11 @@
 
             <Button
                 android:id="@+id/chooseImage"
-                android:layout_width="111dp"
+                android:layout_width="109dp"
                 android:layout_height="39dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="188dp"
+                android:layout_marginEnd="300dp"
                 android:background="@drawable/gradient_background"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
@@ -147,11 +148,11 @@
                 android:layout_width="190dp"
                 android:layout_height="128dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="5dp"
                 android:contentDescription="@string/image"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.174"
+                app:layout_constraintHorizontal_bias="0.14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@mipmap/ic_launcher" />
@@ -199,27 +200,25 @@
                 app:layout_constraintStart_toStartOf="@+id/mapView"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
-                android:layout_width="283dp"
-                android:layout_height="181dp"
-                android:layout_marginEnd="108dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/description"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="222dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="56dp"
                 android:text="@string/edit_map"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.216"
+                app:layout_constraintHorizontal_bias="0.817"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/favourite" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="255dp"
+                android:layout_height="165dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/chooseImage"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <TextView
                 android:id="@+id/rating_label"

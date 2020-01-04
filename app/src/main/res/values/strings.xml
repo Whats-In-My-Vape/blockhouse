@@ -44,8 +44,14 @@
   <string name="title_activity_edit_location">Blockhouse</string>
   <string name="title_activity_login"> Signup | Login to Blockhouse</string>
   <string name="title_activity_blockhouse_maps">Map of all Blockhouses</string>
-  <string name="favourite"> Favourite this Blockhouse!</string>
+  <string name="favourite"> Favourite !</string>
   <string name="menu_logout">Log out</string>
   <string name="title_home">Home</string>
+  <string name="google_map_key">AIzaSyCy3B4ni4-AYRg7H6hB3Q-zo73Y3zyQgm4</string>
+  <string name="lat">lat:</string>
+  <string name="lng">long:</string>
+  <string name="rating_label">rate this blockhouse</string>
+  <string name="edit_map">edit the map</string>
+  <string name="show_map">show map</string>
 
 </resources>

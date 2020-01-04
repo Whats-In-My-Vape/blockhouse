@@ -22,7 +22,7 @@ class BlockhouseMapView : BaseView(), GoogleMap.OnMarkerClickListener {
         super.init(toolbar, true)
         presenter = initPresenter(BlockhouseMapPresenter(this)) as BlockhouseMapPresenter
 
-        mapView.onCreate(savedInstanceState);
+        mapView.onCreate(savedInstanceState)
         mapView.getMapAsync {
             map = it
             map.setOnMarkerClickListener(this)
@@ -33,7 +33,7 @@ class BlockhouseMapView : BaseView(), GoogleMap.OnMarkerClickListener {
     override fun showBlockhouse(blockhouse: BlockhouseModel) {
         currentTitle.text = blockhouse.title
         currentDescription.text = blockhouse.description
-        Glide.with(this).load(blockhouse.image).into(currentImage);
+        Glide.with(this).load(blockhouse.image).into(currentImage)
     }
 
 

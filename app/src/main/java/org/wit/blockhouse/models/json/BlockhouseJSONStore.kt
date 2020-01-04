@@ -62,9 +62,6 @@ class BlockhouseJSONStore(val context: Context) :  BlockhouseStore, AnkoLogger {
       foundBlockhouse.description = blockhouse.description
       foundBlockhouse.location.lat = blockhouse.location.lat.toString().toDouble()
       foundBlockhouse.location.lng = blockhouse.location.lng.toString().toDouble()
-     // foundBlockhouse.note = blockhouse.note
-     // foundBlockhouse.check_box = blockhouse.check_box
-      foundBlockhouse.date = blockhouse.date
       serialize()
     }
   }
